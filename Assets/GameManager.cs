@@ -21,10 +21,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text autoClickerCostText;
     [SerializeField] private float autoClickTime;
     [SerializeField] public int autoClickLevel;
-    [SerializeField] private TMP_Text autoClickTiming;
 
     private float timer;
-    private float timer2;
     private int currentFoodCost;
     private int currentAutoClickCost;
 
@@ -34,11 +32,10 @@ public class GameManager : MonoBehaviour
     {
         moreFoodLevel = 1;
         autoClickLevel = 1;
-        autoClickTime = 12;
-        timer2 = autoClickTime;
-        currentFoodCost = moreFoodLevel * 50 * multiplier;
+        autoClickTime = 3;
+        currentFoodCost = moreFoodLevel * 30 * multiplier;
         moreFoodCostText.SetText("Cost: " + currentFoodCost.ToString());
-        currentAutoClickCost = autoClickLevel * 80 * multiplier;
+        currentAutoClickCost = autoClickLevel * 50 * multiplier;
         autoClickerCostText.SetText("Cost: " + currentAutoClickCost.ToString());
     }
 
@@ -48,11 +45,9 @@ public class GameManager : MonoBehaviour
         if(autoClickLevel > 1)
         {
             timer += Time.deltaTime;
-            autoClickTiming.SetText((timer2 -= Time.deltaTime).ToString());
             if (timer >= autoClickTime)
             {
                 autoClicker();
-                timer2 = autoClickTime;
                 timer = 0;
             }
         }
@@ -62,6 +57,10 @@ public class GameManager : MonoBehaviour
     public int addCurrencyAmount()
     {
         return baseAmount * multiplier;
+    }
+    public int addAutoClickAmount()
+    {
+        return baseAmount * multiplier * (autoClickLevel - 1);
     }
 
     public bool purchaseMoreFood()
@@ -89,11 +88,10 @@ public class GameManager : MonoBehaviour
     public void buyAutoClicker()
     {
         autoClickLevel++;
-        autoClickTime -= autoClickLevel;
         currency -= currentAutoClickCost;
 
         autoClickerLevelText.SetText("Level: " + autoClickLevel.ToString());
-        currentAutoClickCost = autoClickLevel * 80 * multiplier;
+        currentAutoClickCost = autoClickLevel * 50 * multiplier;
         autoClickerCostText.SetText("Cost: " + currentAutoClickCost.ToString());
         currencyText.SetText(currency.ToString());
     }
@@ -105,7 +103,7 @@ public class GameManager : MonoBehaviour
         currency -= currentFoodCost;
 
         moreFoodLevelText.SetText("Level: " + moreFoodLevel.ToString());
-        currentFoodCost  = moreFoodLevel * 50 * multiplier;
+        currentFoodCost  = moreFoodLevel * 30 * multiplier;
         moreFoodCostText.SetText("Cost: " + currentFoodCost.ToString());
         currencyText.SetText(currency.ToString());
     }
@@ -113,7 +111,7 @@ public class GameManager : MonoBehaviour
     public void autoClicker()
     {
         animManager.autoClickerText();
-        currency += baseAmount * multiplier;
+        currency += baseAmount * multiplier * (autoClickLevel -1);
         currencyText.SetText(currency.ToString());
     }
 }

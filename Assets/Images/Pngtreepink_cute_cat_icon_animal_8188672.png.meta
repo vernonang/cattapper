@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c0181aafbaf544f41be5dcfedd605fad
+guid: db762c81cf6e1ca4aa4540e04ce6a5ec
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6698922624983115405
-    second: cat10_0
+      213: 6037226702674840537
+    second: Pngtreepink_cute_cat_icon_animal_8188672_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cat10_0
+      name: Pngtreepink_cute_cat_icon_animal_8188672_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 773
-        height: 930
+        x: 931
+        y: 938
+        width: 3129
+        height: 2691
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8622ff82aa57fc50800000000000000
-      internalID: 6698922624983115405
+      spriteID: 9dbcf6113b988c350800000000000000
+      internalID: 6037226702674840537
       vertices: []
       indices: 
       edges: []
@@ -144,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cat10_0: 6698922624983115405
+      Pngtreepink_cute_cat_icon_animal_8188672_0: 6037226702674840537
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -11,6 +11,7 @@ public class AnimationManager : MonoBehaviour
     [SerializeField] private Sprite[] catSprites;
     [SerializeField] private Button clicker;
     [SerializeField] private GameObject text;
+    [SerializeField] private GameObject autoClicktext;
     [SerializeField] private GameObject cat;
     [SerializeField] private GameObject panel;
     [SerializeField] private Camera mainCamera;
@@ -52,9 +53,8 @@ public class AnimationManager : MonoBehaviour
 
     public void autoClickerText()
     {
-        Vector3 pos = new Vector3(Random.Range(-10, 10), clicker.gameObject.transform.position.y + 100, 0);
-        GameObject obj = Instantiate(text, pos, Quaternion.identity);
-        obj.tag = "AutoClick";
+        Vector3 pos = new Vector3(Random.Range(-200, 200), clicker.gameObject.transform.position.y + 300, 0);
+        GameObject obj = Instantiate(autoClicktext, pos, Quaternion.identity);
         obj.transform.SetParent(panel.transform, false);
     }
 }
